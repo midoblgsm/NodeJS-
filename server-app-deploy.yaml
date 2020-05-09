@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: crud-server-app-deploy
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: crud-server-app
@@ -13,13 +13,11 @@ spec:
         app: crud-server-app
     spec:
       containers:
-      - image: safoueneraddaoui/crud-server-kubernetes-app:latest
-        name: container1
-        ports:
-        - containerPort: 3000
-        imagePullPolicy: IfNotPresent
-        envFrom:
-        - configMapRef:
-            name: server-side-configs
-        - secretRef:
-            name: server-side-secrets
+        - image: midoblgsm/safrad:latest
+          name: container1
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: server-side-configs

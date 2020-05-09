@@ -7,7 +7,7 @@ var studentController = require('./controllers/studentController.js');
 
 var app = express();
 app.use(bodyParser.json());
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors({ origin: '*' }));
 
 app.listen(3000, () => console.log('Server started at port : 3000'));
 
